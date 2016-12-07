@@ -22,14 +22,14 @@ if(!$result) {
 $jsonData = Array();
 
 $output_array = "0";
-while($row = mysqli_fetch_row($result)) {
+while($row = mysqli_fetch_assoc($result)) {
   $jsonData[] = $row;
 }
 
 $jsonEnc = json_encode($jsonData);
 
 echo $jsonEnc;
-echo json_decode($jsonEnc, true);
+print_r(json_decode($jsonEnc, true));
 mysqli_close($conn);
 
  ?>
